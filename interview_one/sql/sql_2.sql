@@ -1,0 +1,16 @@
+SELECT
+	t1.S_NO
+FROM
+	SC t1
+WHERE
+	t1.C_NO = 111
+	AND EXISTS (
+SELECT
+	1
+FROM
+	SC t2
+WHERE
+	t2.C_NO = 112
+	AND t1.S_NO = t2.S_NO
+	AND t1.SCORE > t2.SCORE
+	);

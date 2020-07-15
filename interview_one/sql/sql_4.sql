@@ -1,0 +1,9 @@
+SELECT
+	t1.S_NO,
+	AVG( t1.SCORE ) AS AVG
+FROM
+	SC t1
+GROUP BY
+	t1.S_NO
+HAVING
+	AVG( t1.SCORE ) > 60;

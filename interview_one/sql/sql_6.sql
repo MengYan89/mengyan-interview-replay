@@ -1,0 +1,6 @@
+SELECT
+	COUNT( 1 ) AS 数量
+FROM
+	TEACHER T
+WHERE
+	T.T_NAME LIKE '李%';

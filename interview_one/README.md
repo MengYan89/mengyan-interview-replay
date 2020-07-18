@@ -431,7 +431,9 @@ Array存放的一定都是同种元素，而ArrayList由于可以存储Object所
 ## 什么时候应该使用Array而不是ArrayList
 在无法确认数组大小的时候去使用ArrayList，其他情况无论是基于效率还是类型校验尽量使用Array，如果Array无法满足再去使用ArrayList。  
 ## ArrayList与LinkedList有什么区别
-
+1.ArrayList是数组实现的集合操作，而LinkedList是链表实现的集合操作  
+2.只是用List集合中的get()方法根据索引取数据的时候，ArrayList的时间复杂度为“O(1)”,而LinkedList的时间复杂度为“O(n)”(n为集合的长度)  
+3.ArrayList在使用的时候默认的初始化数组的长度为10，如果空间不足则会采用2倍的形式进行容量的扩充，如果保存大数据的时候有可能造成垃圾的产生以及性能的下降，这个时候就可以用LinkedList子类保存.
 ## throw和throws有什么区别
 1.throw是在代码块内部使用语句抛出一个特定的异常，确定了发生哪种异常，创建一个异常对象。  
 ```java

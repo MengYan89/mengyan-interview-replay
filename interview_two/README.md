@@ -131,6 +131,7 @@ public class test_two {
 | 2 | 5 |
 | 3 | 7 |
 | 4 | 9 |
+
 就能得到代码里的这个部分  
 ```java
 (number*1.0/(1.0+(number*2)))

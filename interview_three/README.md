@@ -54,6 +54,7 @@
 
 ## 请写出如下表达式的输出结果
 ```java
+第一题
 String string = null;
 boolean result = (string + "welcome").equals("welcome");
 System.out.println(result);
@@ -124,5 +125,13 @@ private AbstractStringBuilder appendNull() {
 　　}
 ```
 会发现如果字符串为null就会填充null进去。  
-**相关知识:常量折叠**
+**相关知识:常量折叠**  
 
+```java
+第二题
+String str1 = "welcome";
+String str2 = "welcome";
+System.out.println(str1 == str2);
+```
+输出是true  
+jvm会将直接赋值的字符串加入常量池,所以这两个String的内存地址是一致的输出true

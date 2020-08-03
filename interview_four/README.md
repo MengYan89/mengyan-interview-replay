@@ -25,7 +25,7 @@ A.true B.false
 
 2.以下代码中两个输出结果result01与result02是否相等？请选择(B)  
 ```java
-public class Test02 {
+public class three.Test02 {
     public static void main(String[] args) {
         double salary1 = 0.8;
         double salary2 = 0.7;

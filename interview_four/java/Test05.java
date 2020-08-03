@@ -4,7 +4,7 @@
 public class Test05 {
     public static void main(String[] args) {
         String s = null;
-        iv.switchTest(s);
+        // iv.switchTest(s);
     }
 
     private void switchTest(String str) {

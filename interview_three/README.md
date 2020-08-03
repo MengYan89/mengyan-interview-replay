@@ -134,4 +134,21 @@ String str2 = "welcome";
 System.out.println(str1 == str2);
 ```
 输出是true  
-jvm会将直接赋值的字符串加入常量池,所以这两个String的内存地址是一致的输出true
+jvm会将直接赋值的字符串加入常量池,所以这两个String的内存地址是一致的输出true  
+```java
+第三题
+Integer int1 = 1;
+Integer int2 = 1;
+System.out.println(int1 == int2);
+```
+输出是true  
+因为java缓存了-128到127的数字所以这两个int的内存地址相同  
+
+```java
+第四题
+Integer int1 = 128;
+Integer int2 = 128;
+System.out.println(int1 == int2);
+```
+输出是false  
+和上一题一样由于128不在缓存区间所以内存地址不同  

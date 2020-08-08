@@ -5,7 +5,8 @@
 - [选择题](#选择题)  
     * [精度相关](#精度相关)  
     * [方法重载](#方法重载)  
-    * [switch](#switch)
+    * [switch](#switch)  
+    * [类继承执行顺序](#类继承执行顺序)
 - [简答题](#简答题)  
 
 
@@ -118,6 +119,7 @@ A.抛出异常 B.Infinity C.NaN D.1.0
 ```java
 public static final double NaN = 0.0d / 0.0;
 ```  
+## 类继承执行顺序
 8.下面程序的运行结果是什么？
 ```java
 class InteviewTest01Parent {
@@ -154,4 +156,72 @@ Parent class
 Test01 Parent
 Test01 class
 Test01
+```
+9.指出下列程序运行的结果?
+```java
+public class Test09 extends InteviewTest03Parent {
+    private String name = "fkh";
+
+    public Test09() {
+        sayHi();
+        sayGoodbye();
+    }
+    public void sayHi() {
+        System.out.println("fkh say hi:" + name);
+    }
+
+    public void sayGoodbye() {
+        System.out.println("fkh say goodbye:" + name);
+    }
+
+    public static void main(String[] args) {
+        new Test09();
+    }
+
+}
+class InteviewTest03Parent {
+    private String name = "parent";
+
+    public InteviewTest03Parent() {
+        sayHi();
+        sayGoodbye();
+    }
+    public void sayHi() {
+        System.out.println("Parent say hi:" + name);
+    }
+    public void sayGoodbye() {
+        System.out.println("Parent say goodbye:"+name);
+    }
+}
+```
+结果:  
+```
+fkh say hi:null
+fkh say goodbye:null
+fkh say hi:fkh
+fkh say goodbye:fkh
+```
+解析:  
+首先我们需要知道类中的成员变量会在构造函数中进行初始化。  
+在构造函数实现的时候会先调用父类的构造函数，如果子类中重写了父类中的方法，那么父类的构造方法调用被复写的方法时，是调用新方法，不会调用父类原本的方法。  
+但在调用新方法时Test09中的构造函数还没有被调用，所以name为null所以输出了:  
+```
+fkh say hi:null
+fkh say goodbye:null
+```
+在父类构造函数调用后，去调用子类的构造函数，name被初始化所以输出了:  
+```
+fkh say hi:fkh
+fkh say goodbye:fkh
+```  
+如果将name设置为静态成员变量会在class加载时进行初始化不存在为null问题  
+```java
+private static String name = "fkh";
+```
+输出就会变成:  
+```
+fkh say hi:fkh
+fkh say goodbye:fkh
+fkh say hi:fkh
+fkh say goodbye:fkh
 ```
